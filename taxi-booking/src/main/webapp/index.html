@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>My Portfolio</title>
+    <title>DevOps Hub</title>
 
     <style>
         * {
@@ -19,121 +19,392 @@
             color: white;
         }
 
+        /* Navbar */
         nav {
+            height: 70px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 8%;
+            padding: 0 8%;
             background: #020617;
         }
 
-        nav h2 {
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
             color: #38bdf8;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
         }
 
         nav a {
             color: white;
             text-decoration: none;
-            margin-left: 25px;
         }
 
         nav a:hover {
             color: #38bdf8;
         }
 
+        /* Hero */
         .hero {
-            min-height: 80vh;
+            min-height: 600px;
             display: flex;
-            justify-content: center;
             align-items: center;
+            justify-content: center;
             text-align: center;
+            padding: 40px 10%;
+            background: linear-gradient(
+                135deg,
+                #0f172a,
+                #172554
+            );
         }
 
         .hero h1 {
-            font-size: 55px;
+            font-size: 60px;
+            margin-bottom: 20px;
         }
 
-        .hero span {
+        .hero h1 span {
             color: #38bdf8;
         }
 
         .hero p {
-            margin: 20px 0;
             font-size: 20px;
             color: #cbd5e1;
+            max-width: 700px;
+            margin: auto;
+            line-height: 1.6;
+        }
+
+        .buttons {
+            margin-top: 30px;
         }
 
         .btn {
             display: inline-block;
-            padding: 12px 25px;
-            background: #38bdf8;
-            color: #020617;
-            border-radius: 5px;
+            padding: 14px 28px;
+            margin: 8px;
+            border-radius: 6px;
             text-decoration: none;
             font-weight: bold;
         }
 
-        .about {
-            padding: 80px 10%;
-            text-align: center;
-            background: #1e293b;
+        .primary {
+            background: #38bdf8;
+            color: #020617;
         }
 
-        .about h2 {
+        .secondary {
+            border: 1px solid #38bdf8;
+            color: #38bdf8;
+        }
+
+        /* Tools */
+        .tools {
+            padding: 80px 8%;
+            text-align: center;
+        }
+
+        .tools h2 {
+            font-size: 38px;
+            margin-bottom: 40px;
+        }
+
+        .tool-container {
+            display: grid;
+            grid-template-columns: repeat(
+                auto-fit,
+                minmax(180px, 1fr)
+            );
+            gap: 20px;
+        }
+
+        .tool {
+            background: #1e293b;
+            padding: 30px;
+            border-radius: 10px;
+            transition: 0.3s;
+        }
+
+        .tool:hover {
+            transform: translateY(-8px);
+            background: #334155;
+        }
+
+        .tool h3 {
+            margin-bottom: 10px;
+            color: #38bdf8;
+        }
+
+        .tool p {
+            color: #cbd5e1;
+        }
+
+        /* Pipeline */
+        .pipeline {
+            padding: 80px 8%;
+            text-align: center;
+            background: #020617;
+        }
+
+        .pipeline h2 {
+            font-size: 38px;
+            margin-bottom: 40px;
+        }
+
+        .steps {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .step {
+            background: #1e293b;
+            padding: 20px 30px;
+            border-radius: 8px;
+            border: 1px solid #334155;
+        }
+
+        .arrow {
+            display: flex;
+            align-items: center;
+            color: #38bdf8;
+            font-size: 25px;
+        }
+
+        /* Contact */
+        .contact {
+            padding: 70px 10%;
+            text-align: center;
+        }
+
+        .contact h2 {
             font-size: 35px;
             margin-bottom: 20px;
         }
 
+        .contact p {
+            color: #cbd5e1;
+        }
+
+        /* Footer */
         footer {
             text-align: center;
-            padding: 20px;
+            padding: 25px;
             background: #020617;
             color: #94a3b8;
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 40px;
+            }
+
+            nav ul {
+                gap: 10px;
+            }
+
+            .arrow {
+                display: none;
+            }
         }
     </style>
 </head>
 
 <body>
 
-<nav>
-    <h2>MyPortfolio</h2>
+<!-- Navbar -->
 
-    <div>
-        <a href="/">Home</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
+<nav>
+
+    <div class="logo">
+        DevOps Hub
     </div>
+
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#tools">Tools</a></li>
+        <li><a href="#pipeline">Pipeline</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+
 </nav>
 
-<section class="hero">
+
+<!-- Hero Section -->
+
+<section class="hero" id="home">
 
     <div>
-        <h1>Hello, I'm <span th:text="${name}">Gokul Kannan</span></h1>
+
+        <h1>
+            Automate.
+            <span>Deploy.</span>
+            Scale.
+        </h1>
 
         <p>
-            <span th:text="${role}">Java Developer</span>
+            Welcome to DevOps Hub — learn and explore
+            modern DevOps technologies, CI/CD pipelines,
+            cloud infrastructure and automation.
         </p>
 
-        <a href="#about" class="btn">
-            Explore My Profile
-        </a>
+        <div class="buttons">
+
+            <a href="#tools" class="btn primary">
+                Explore Tools
+            </a>
+
+            <a href="#pipeline" class="btn secondary">
+                View Pipeline
+            </a>
+
+        </div>
+
     </div>
 
 </section>
 
-<section class="about" id="about">
 
-    <h2>About Me</h2>
+<!-- DevOps Tools -->
+
+<section class="tools" id="tools">
+
+    <h2>DevOps Tools</h2>
+
+    <div class="tool-container">
+
+        <div class="tool">
+            <h3>Git</h3>
+            <p>Version Control</p>
+        </div>
+
+        <div class="tool">
+            <h3>GitHub</h3>
+            <p>Code Repository</p>
+        </div>
+
+        <div class="tool">
+            <h3>Maven</h3>
+            <p>Build Automation</p>
+        </div>
+
+        <div class="tool">
+            <h3>Jenkins</h3>
+            <p>CI/CD Automation</p>
+        </div>
+
+        <div class="tool">
+            <h3>Docker</h3>
+            <p>Containerization</p>
+        </div>
+
+        <div class="tool">
+            <h3>AWS</h3>
+            <p>Cloud Computing</p>
+        </div>
+
+        <div class="tool">
+            <h3>Terraform</h3>
+            <p>Infrastructure as Code</p>
+        </div>
+
+        <div class="tool">
+            <h3>Kubernetes</h3>
+            <p>Container Orchestration</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CI/CD Pipeline -->
+
+<section class="pipeline" id="pipeline">
+
+    <h2>CI/CD Pipeline</h2>
+
+    <div class="steps">
+
+        <div class="step">
+            <strong>1</strong>
+            <br>
+            Developer
+        </div>
+
+        <div class="arrow">→</div>
+
+        <div class="step">
+            <strong>2</strong>
+            <br>
+            GitHub
+        </div>
+
+        <div class="arrow">→</div>
+
+        <div class="step">
+            <strong>3</strong>
+            <br>
+            Jenkins
+        </div>
+
+        <div class="arrow">→</div>
+
+        <div class="step">
+            <strong>4</strong>
+            <br>
+            Maven
+        </div>
+
+        <div class="arrow">→</div>
+
+        <div class="step">
+            <strong>5</strong>
+            <br>
+            Docker
+        </div>
+
+        <div class="arrow">→</div>
+
+        <div class="step">
+            <strong>6</strong>
+            <br>
+            AWS
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- Contact -->
+
+<section class="contact" id="contact">
+
+    <h2>Start Your DevOps Journey</h2>
 
     <p>
-        I am a Java developer interested in building web applications
-        using Java, Spring Boot, MySQL and modern web technologies.
+        Learn automation, continuous integration,
+        continuous deployment and cloud technologies.
     </p>
 
 </section>
 
-<footer id="contact">
-    <p>© 2026 My Portfolio | Java Developer</p>
+
+<!-- Footer -->
+
+<footer>
+
+    © 2026 DevOps Hub | Built with HTML, CSS & Java
+
 </footer>
 
 </body>

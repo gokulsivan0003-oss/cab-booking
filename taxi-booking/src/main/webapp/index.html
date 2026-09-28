@@ -1,240 +1,411 @@
-<style>
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    body {
-        font-family: Arial, sans-serif;
-        background: #0b1020;
-        color: #f8fafc;
-    }
+    <title>DevOps Hub</title>
 
-    /* Navbar */
-    nav {
-        height: 70px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0 8%;
-        background: #111936;
-        border-bottom: 1px solid #29345f;
-    }
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    .logo {
-        font-size: 26px;
-        font-weight: bold;
-        color: #a78bfa;
-    }
+        body {
+            font-family: Arial, sans-serif;
+            background: #0f172a;
+            color: white;
+        }
 
-    nav ul {
-        display: flex;
-        list-style: none;
-        gap: 30px;
-    }
+        /* Navbar */
+        nav {
+            height: 70px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 8%;
+            background: #020617;
+        }
 
-    nav a {
-        color: #e2e8f0;
-        text-decoration: none;
-        transition: 0.3s;
-    }
-
-    nav a:hover {
-        color: #67e8f9;
-    }
-
-    /* Hero */
-    .hero {
-        min-height: 600px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        padding: 40px 10%;
-
-        background:
-            radial-gradient(
-                circle at top left,
-                #312e81,
-                transparent 40%
-            ),
-            radial-gradient(
-                circle at bottom right,
-                #164e63,
-                transparent 40%
-            ),
-            #0b1020;
-    }
-
-    .hero h1 {
-        font-size: 60px;
-        margin-bottom: 20px;
-    }
-
-    .hero h1 span {
-        color: #67e8f9;
-    }
-
-    .hero p {
-        font-size: 20px;
-        color: #cbd5e1;
-        max-width: 700px;
-        margin: auto;
-        line-height: 1.6;
-    }
-
-    .buttons {
-        margin-top: 30px;
-    }
-
-    .btn {
-        display: inline-block;
-        padding: 14px 28px;
-        margin: 8px;
-        border-radius: 8px;
-        text-decoration: none;
-        font-weight: bold;
-        transition: 0.3s;
-    }
-
-    .primary {
-        background: linear-gradient(
-            135deg,
-            #8b5cf6,
-            #06b6d4
-        );
-        color: white;
-    }
-
-    .primary:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 10px 25px #06b6d455;
-    }
-
-    .secondary {
-        border: 1px solid #8b5cf6;
-        color: #c4b5fd;
-    }
-
-    .secondary:hover {
-        background: #8b5cf622;
-    }
-
-    /* Tools */
-    .tools {
-        padding: 80px 8%;
-        text-align: center;
-        background: #0f172a;
-    }
-
-    .tools h2,
-    .pipeline h2 {
-        font-size: 38px;
-        margin-bottom: 40px;
-        color: #f8fafc;
-    }
-
-    .tool-container {
-        display: grid;
-        grid-template-columns:
-            repeat(auto-fit, minmax(180px, 1fr));
-        gap: 20px;
-    }
-
-    .tool {
-        background: #171f3a;
-        padding: 30px;
-        border-radius: 12px;
-        border: 1px solid #29345f;
-        transition: 0.3s;
-    }
-
-    .tool:hover {
-        transform: translateY(-8px);
-        border-color: #8b5cf6;
-        box-shadow: 0 10px 30px #8b5cf622;
-    }
-
-    .tool h3 {
-        margin-bottom: 10px;
-        color: #67e8f9;
-    }
-
-    .tool p {
-        color: #94a3b8;
-    }
-
-    /* Pipeline */
-    .pipeline {
-        padding: 80px 8%;
-        text-align: center;
-        background: #080d1c;
-    }
-
-    .steps {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-wrap: wrap;
-        gap: 15px;
-    }
-
-    .step {
-        background: #171f3a;
-        padding: 20px 30px;
-        border-radius: 10px;
-        border: 1px solid #334155;
-        transition: 0.3s;
-    }
-
-    .step:hover {
-        border-color: #06b6d4;
-        transform: translateY(-4px);
-    }
-
-    .arrow {
-        color: #67e8f9;
-        font-size: 28px;
-    }
-
-    /* Contact */
-    .contact {
-        padding: 70px 10%;
-        text-align: center;
-        background: #111936;
-    }
-
-    .contact h2 {
-        font-size: 35px;
-        margin-bottom: 20px;
-        color: #a78bfa;
-    }
-
-    .contact p {
-        color: #94a3b8;
-    }
-
-    /* Footer */
-    footer {
-        text-align: center;
-        padding: 25px;
-        background: #060914;
-        color: #64748b;
-    }
-
-    @media (max-width: 600px) {
-
-        .hero h1 {
-            font-size: 40px;
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            color: #38bdf8;
         }
 
         nav ul {
-            gap: 10px;
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            color: #38bdf8;
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 40px 10%;
+            background: linear-gradient(
+                135deg,
+                #0f172a,
+                #172554
+            );
+        }
+
+        .hero h1 {
+            font-size: 60px;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: #38bdf8;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: #cbd5e1;
+            max-width: 700px;
+            margin: auto;
+            line-height: 1.6;
+        }
+
+        .buttons {
+            margin-top: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 28px;
+            margin: 8px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .primary {
+            background: #38bdf8;
+            color: #020617;
+        }
+
+        .secondary {
+            border: 1px solid #38bdf8;
+            color: #38bdf8;
+        }
+
+        /* Tools */
+        .tools {
+            padding: 80px 8%;
+            text-align: center;
+        }
+
+        .tools h2 {
+            font-size: 38px;
+            margin-bottom: 40px;
+        }
+
+        .tool-container {
+            display: grid;
+            grid-template-columns: repeat(
+                auto-fit,
+                minmax(180px, 1fr)
+            );
+            gap: 20px;
+        }
+
+        .tool {
+            background: #1e293b;
+            padding: 30px;
+            border-radius: 10px;
+            transition: 0.3s;
+        }
+
+        .tool:hover {
+            transform: translateY(-8px);
+            background: #334155;
+        }
+
+        .tool h3 {
+            margin-bottom: 10px;
+            color: #38bdf8;
+        }
+
+        .tool p {
+            color: #cbd5e1;
+        }
+
+        /* Pipeline */
+        .pipeline {
+            padding: 80px 8%;
+            text-align: center;
+            background: #020617;
+        }
+
+        .pipeline h2 {
+            font-size: 38px;
+            margin-bottom: 40px;
+        }
+
+        .steps {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .step {
+            background: #1e293b;
+            padding: 20px 30px;
+            border-radius: 8px;
+            border: 1px solid #334155;
         }
 
         .arrow {
-            display: none;
+            display: flex;
+            align-items: center;
+            color: #38bdf8;
+            font-size: 25px;
         }
-    }
-</style>
+
+        /* Contact */
+        .contact {
+            padding: 70px 10%;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 35px;
+            margin-bottom: 20px;
+        }
+
+        .contact p {
+            color: #cbd5e1;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 25px;
+            background: #020617;
+            color: #94a3b8;
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 40px;
+            }
+
+            nav ul {
+                gap: 10px;
+            }
+
+            .arrow {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- Navbar -->
+
+<nav>
+
+    <div class="logo">
+        DevOps Hub
+    </div>
+
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#tools">Tools</a></li>
+        <li><a href="#pipeline">Pipeline</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+
+</nav>
+
+
+<!-- Hero Section -->
+
+<section class="hero" id="home">
+
+    <div>
+
+        <h1>
+            Automate.
+            <span>Deploy.</span>
+            Scale.
+        </h1>
+
+        <p>
+            Welcome to DevOps Hub — learn and explore
+            modern DevOps technologies, CI/CD pipelines,
+            cloud infrastructure and automation.
+        </p>
+
+        <div class="buttons">
+
+            <a href="#tools" class="btn primary">
+                Explore Tools
+            </a>
+
+            <a href="#pipeline" class="btn secondary">
+                View Pipeline
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- DevOps Tools -->
+
+<section class="tools" id="tools">
+
+    <h2>DevOps Tools</h2>
+
+    <div class="tool-container">
+
+        <div class="tool">
+            <h3>Git</h3>
+            <p>Version Control</p>
+        </div>
+
+        <div class="tool">
+            <h3>GitHub</h3>
+            <p>Code Repository</p>
+        </div>
+
+        <div class="tool">
+            <h3>Maven</h3>
+            <p>Build Automation</p>
+        </div>
+
+        <div class="tool">
+            <h3>Jenkins</h3>
+            <p>CI/CD Automation</p>
+        </div>
+
+        <div class="tool">
+            <h3>Docker</h3>
+            <p>Containerization</p>
+        </div>
+
+        <div class="tool">
+            <h3>AWS</h3>
+            <p>Cloud Computing</p>
+        </div>
+
+        <div class="tool">
+            <h3>Terraform</h3>
+            <p>Infrastructure as Code</p>
+        </div>
+
+        <div class="tool">
+            <h3>Kubernetes</h3>
+            <p>Container Orchestration</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CI/CD Pipeline -->
+
+<section class="pipeline" id="pipeline">
+
+    <h2>CI/CD Pipeline</h2>
+
+    <div class="steps">
+
+        <div class="step">
+            <strong>1</strong>
+            <br>
+            Developer
+        </div>
+
+        <div class="arrow">→</div>
+
+        <div class="step">
+            <strong>2</strong>
+            <br>
+            GitHub
+        </div>
+
+        <div class="arrow">→</div>
+
+        <div class="step">
+            <strong>3</strong>
+            <br>
+            Jenkins
+        </div>
+
+        <div class="arrow">→</div>
+
+        <div class="step">
+            <strong>4</strong>
+            <br>
+            Maven
+        </div>
+
+        <div class="arrow">→</div>
+
+        <div class="step">
+            <strong>5</strong>
+            <br>
+            Docker
+        </div>
+
+        <div class="arrow">→</div>
+
+        <div class="step">
+            <strong>6</strong>
+            <br>
+            AWS
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- Contact -->
+
+<section class="contact" id="contact">
+
+    <h2>Start Your DevOps Journey</h2>
+
+    <p>
+        Learn automation, continuous integration,
+        continuous deployment and cloud technologies.
+    </p>
+
+</section>
+
+
+<!-- Footer -->
+
+<footer>
+
+    © 2026 DevOps Hub | Built with HTML, CSS & Java
+
+</footer>
+
+</body>
+</html>
